@@ -119,6 +119,49 @@ a {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.button-primary:disabled {
+  opacity: 0.65;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #183335;
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(24, 51, 53, 0.15);
+  background: #fff;
+  padding: 0.65rem 0.85rem;
+  font: inherit;
+  color: #183335;
+}
+
+.field-input:focus {
+  outline: 2px solid #caf05b;
+  outline-offset: 1px;
+}
+
+.format-btn {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(24, 51, 53, 0.12);
+  background: #fff;
+  padding: 0.25rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #60716f;
+}
+
+.format-btn:hover {
+  color: #183335;
+}
+
 .visual-panel {
   position: relative;
   height: 168px;

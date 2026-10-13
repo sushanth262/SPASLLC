@@ -1,10 +1,15 @@
 {
-  "description": "Showcases software products and services with detailed information and contact options to attract and engage potential clients effectively.",
+  "title": "SPAS LLC — Software products and services",
+  "description": "SPAS LLC designs, builds, and operates digital applications and technology services. Based in Issaquah, Washington.",
+  "language": "en",
   "robots": {
-    "index": false
+    "index": true
+  },
+  "icons": {
+    "icon": "/favicon.svg"
   },
   "accessibility": {
-    "addBypassLinks": false,
+    "addBypassLinks": true,
     "ignoreReducedMotion": false
   }
 }
