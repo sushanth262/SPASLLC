@@ -1,11 +1,13 @@
+import { ProductShowcase } from "../components/ProductCards";
+
 const services = [
   {
     title: "Applications",
-    description: "Consumer and business apps for iOS, Android, and web.",
+    description: "Consumer and business apps for iOS, Android, and web — including products we operate such as Scoutify.",
   },
   {
     title: "Platforms & APIs",
-    description: "Backend services, integrations, and data pipelines.",
+    description: "Backend services, integrations, data pipelines, and learning-platform infrastructure.",
   },
   {
     title: "Product engineering",
@@ -35,6 +37,13 @@ export default function ServicesPage() {
             <p className="mt-3 text-sm leading-7 text-[#60716f]">{service.description}</p>
           </article>
         ))}
+      </section>
+
+      <section className="rounded-[24px] border border-[#183335]/10 bg-white px-6 py-10 sm:px-12">
+        <ProductShowcase
+          title="Products under these categories"
+          lead="Examples of what SPAS LLC delivers today — mobile, web, and AI-powered learning."
+        />
       </section>
     </main>
   );

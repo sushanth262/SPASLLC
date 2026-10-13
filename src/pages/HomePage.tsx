@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "../components/Icons";
+import { ProductShowcase } from "../components/ProductCards";
 import { ApplicationVisual, OperationsVisual, ServicesVisual } from "../components/ServiceVisuals";
 
 const pillars = [
   {
     title: "Applications",
     description: "Mobile and web products built around real customer needs.",
-    detail: "iOS · Android · Web",
+    detail: "Scoutify · iOS · Android · Web",
     visual: ApplicationVisual,
   },
   {
@@ -94,6 +95,13 @@ export default function HomePage() {
             </article>
           );
         })}
+      </section>
+
+      <section className="rounded-[24px] border border-[#183335]/10 bg-white px-6 py-10 sm:px-10">
+        <ProductShowcase
+          title="Products we operate"
+          lead="Mobile, web, and AI learning platforms built and run by SPAS LLC."
+        />
       </section>
 
       <section className="rounded-2xl border border-[#183335]/10 bg-white px-6 py-8 text-center sm:px-10" aria-label="Trust">

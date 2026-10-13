@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="MiaMaestra">
+  <rect width="64" height="64" rx="16" fill="#183335"/>
+  <path d="M14 22h36v4H14v-4Z" fill="#8dd7cf"/>
+  <path d="M18 26h28v22H18V26Z" fill="#f7f7f1"/>
+  <path d="M22 32h8v12h-8V32Zm12 0h8v12h-8V32Z" fill="#caf05b"/>
+  <path d="M32 14 22 22h20L32 14Z" fill="#caf05b"/>
+</svg>
