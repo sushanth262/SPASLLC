@@ -5,6 +5,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/": "SPAS LLC — Software products and services",
   "/about": "About — SPAS LLC",
   "/services": "Services — SPAS LLC",
+  "/products": "Products — SPAS LLC",
   "/contact": "Contact — SPAS LLC",
   "/privacy": "Privacy Policy — SPAS LLC",
   "/terms": "Terms of Use — SPAS LLC",

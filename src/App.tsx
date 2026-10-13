@@ -4,6 +4,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
 import LegalPage from "./pages/LegalPage";
+import ProductsPage from "./pages/ProductsPage";
 import ServicesPage from "./pages/ServicesPage";
 import { privacySections, termsSections } from "./lib/legal";
 
@@ -14,6 +15,7 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="services" element={<ServicesPage />} />
+        <Route path="products" element={<ProductsPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route
           path="privacy"

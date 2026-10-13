@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "../components/Icons";
-import { ProductShowcase } from "../components/ProductCards";
 import { ApplicationVisual, OperationsVisual, ServicesVisual } from "../components/ServiceVisuals";
 
 const pillars = [
@@ -90,18 +89,22 @@ export default function HomePage() {
               <div className="px-2 pb-3 pt-6">
                 <h3 className="text-2xl font-extrabold tracking-[-0.045em]">{service.title}</h3>
                 <p className="mt-3 min-h-12 text-sm leading-6 text-[#60716f]">{service.description}</p>
-                <p className="mt-5 border-t border-[#183335]/10 pt-4 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#879492]">{service.detail}</p>
+                <p className="mt-5 border-t border-[#183335]/10 pt-4 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#879492]">
+                  {service.detail}
+                </p>
+                {service.title === "Applications" ? (
+                  <Link
+                    to="/products"
+                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-extrabold text-[#398d82] transition-colors hover:text-[#183335]"
+                  >
+                    View products
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
+                ) : null}
               </div>
             </article>
           );
         })}
-      </section>
-
-      <section className="rounded-[24px] border border-[#183335]/10 bg-white px-6 py-10 sm:px-10">
-        <ProductShowcase
-          title="Products we operate"
-          lead="Mobile, web, and AI learning platforms built and run by SPAS LLC."
-        />
       </section>
 
       <section className="rounded-2xl border border-[#183335]/10 bg-white px-6 py-8 text-center sm:px-10" aria-label="Trust">

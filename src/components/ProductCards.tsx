@@ -2,26 +2,32 @@ import { ArrowUpRight } from "./Icons";
 import type { ProductCategory, SpasProduct } from "../lib/products";
 import { PRODUCT_CATEGORIES, SPAS_PRODUCTS } from "../lib/products";
 
-function ProductCard({ product }: { product: SpasProduct }) {
+function ProductCard({ product, large }: { product: SpasProduct; large?: boolean }) {
   return (
     <a
       href={product.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="product-card group flex gap-4 rounded-2xl border border-[#183335]/10 bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(24,51,53,.08)]"
+      className={`product-card group flex gap-5 rounded-[22px] border border-[#183335]/10 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-[#183335]/18 hover:shadow-[0_20px_50px_rgba(24,51,53,.10)]${
+        large ? " sm:items-center" : ""
+      }`}
     >
       <img
         src={product.iconSrc}
         alt={product.iconAlt}
-        width={56}
-        height={56}
-        className="product-card__icon size-14 shrink-0 rounded-[14px] border border-[#183335]/10 bg-[#f4f3ee] object-cover"
+        width={large ? 72 : 56}
+        height={large ? 72 : 56}
+        className={`product-card__icon shrink-0 rounded-[16px] border border-[#183335]/10 bg-[#f4f3ee] object-cover shadow-[0_8px_20px_rgba(24,51,53,.06)]${
+          large ? " size-[4.5rem]" : " size-14"
+        }`}
       />
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div>
             <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#879492]">{product.categoryLabel}</p>
-            <h3 className="mt-1 text-lg font-extrabold tracking-[-0.03em] text-[#183335]">{product.name}</h3>
+            <h3 className={`mt-1 font-extrabold tracking-[-0.03em] text-[#183335]${large ? " text-xl sm:text-2xl" : " text-lg"}`}>
+              {product.name}
+            </h3>
           </div>
           <span className="grid size-9 shrink-0 place-items-center rounded-full border border-[#183335]/12 text-[#183335] transition-colors group-hover:bg-[#caf05b]">
             <ArrowUpRight className="size-4" />
@@ -38,46 +44,37 @@ function ProductCard({ product }: { product: SpasProduct }) {
 }
 
 type ProductShowcaseProps = {
-  title?: string;
-  lead?: string;
+  /** Page layout: no duplicate page title block; larger cards */
+  variant?: "embedded" | "page";
   /** Show only one category, or all grouped */
   filter?: ProductCategory | "all";
 };
 
-export function ProductShowcase({
-  title = "Products we operate",
-  lead = "Selected applications and platforms delivered by SPAS LLC.",
-  filter = "all",
-}: ProductShowcaseProps) {
+export function ProductShowcase({ variant = "embedded", filter = "all" }: ProductShowcaseProps) {
   const categories =
     filter === "all"
       ? PRODUCT_CATEGORIES
       : PRODUCT_CATEGORIES.filter((c) => c.id === filter);
+  const large = variant === "page";
 
   return (
-    <section className="space-y-6" aria-labelledby="products-showcase-title">
-      <div>
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#879492]">Products</p>
-        <h2 id="products-showcase-title" className="mt-2 text-2xl font-extrabold tracking-[-0.04em] sm:text-3xl">
-          {title}
-        </h2>
-        {lead ? <p className="mt-3 max-w-2xl text-sm leading-7 text-[#60716f]">{lead}</p> : null}
-      </div>
-
+    <section className={large ? "space-y-10" : "space-y-6"} aria-label="Product list">
       {categories.map((cat) => {
         const items = SPAS_PRODUCTS.filter((p) => p.category === cat.id);
         if (items.length === 0) return null;
         return (
-          <div key={cat.id} className="space-y-3">
+          <div key={cat.id} className={large ? "space-y-5" : "space-y-3"}>
             {filter === "all" ? (
-              <>
-                <h3 className="text-base font-extrabold text-[#183335]">{cat.title}</h3>
-                <p className="text-sm text-[#60716f]">{cat.lead}</p>
-              </>
+              <div className={large ? "border-b border-[#183335]/10 pb-4" : ""}>
+                <h2 className={`font-extrabold text-[#183335]${large ? " text-xl sm:text-2xl tracking-[-0.03em]" : " text-base"}`}>
+                  {cat.title}
+                </h2>
+                <p className={`mt-2 text-[#60716f]${large ? " max-w-2xl text-base leading-7" : " text-sm"}`}>{cat.lead}</p>
+              </div>
             ) : null}
-            <div className="grid gap-4 lg:grid-cols-2">
+            <div className={`grid gap-4${large ? "" : " lg:grid-cols-2"}`}>
               {items.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} large={large} />
               ))}
             </div>
           </div>
