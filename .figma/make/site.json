@@ -1,0 +1,10 @@
+{
+  "description": "Showcases software products and services with detailed information and contact options to attract and engage potential clients effectively.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f4f3ee;
+  color: #183335;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: #caf05b;
+  color: #183335;
+}
+
+.page-shell {
+  width: min(100% - 2rem, 1240px);
+  margin-inline: auto;
+}
+
+.nav-link {
+  position: relative;
+  padding-block: 0.5rem;
+  color: #667775;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: color 160ms ease;
+}
+
+.logo-mark {
+  flex: none;
+  filter: drop-shadow(0 6px 10px rgba(24, 51, 53, 0.16));
+  transition:
+    transform 220ms ease,
+    filter 220ms ease;
+}
+
+.group:hover .logo-mark {
+  transform: rotate(-4deg) scale(1.04);
+  filter: drop-shadow(0 8px 14px rgba(24, 51, 53, 0.2));
+}
+
+.nav-link:hover,
+.nav-active {
+  color: #183335;
+}
+
+.nav-active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: #caf05b;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(circle at 92% 5%, rgba(141, 215, 207, 0.2), transparent 32%),
+    radial-gradient(circle at 58% 105%, rgba(202, 240, 91, 0.12), transparent 35%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: auto, auto, 36px 36px, 36px 36px;
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.button-primary {
+  background: #caf05b;
+  color: #183335;
+}
+
+.button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+}
+
+.button-primary:hover,
+.button-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary:hover {
+  background: #d7fa70;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.visual-panel {
+  position: relative;
+  height: 168px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    width: min(100% - 3rem, 1240px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
